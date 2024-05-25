@@ -13,7 +13,7 @@ return {
             highlight_groups = {
                 Comment = { fg = "#67616e" },
                 -- VertSplit = { fg = "muted", bg = "muted" },
-                Keyword = { fg = "#667b77" },
+                Keyword = { fg = "#7b9174" },
                 Visual = { bg = "#434343" },
             },
         })
