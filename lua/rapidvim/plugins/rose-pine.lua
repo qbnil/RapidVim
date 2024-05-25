@@ -5,9 +5,20 @@ return {
     priority = 1000,
     config = function()
         require('rose-pine').setup({
-            disable_italics = true,
-            extend_background_behind_borders = true,
-            vim.cmd("colorscheme rose-pine-main")
+            styles = {
+                bold = true,
+                italic = true,
+                transparency = true,
+            },
+            highlight_groups = {
+                Comment = { fg = "#67616e" },
+                -- VertSplit = { fg = "muted", bg = "muted" },
+                Keyword = { fg = "#256148"},
+            },
         })
+        vim.cmd('colorscheme rose-pine-main')
+        vim.cmd('colorscheme rose-pine-main')
+        vim.api.nvim_set_hl(0, 'Pmenu', { bg = '#262626', fg = "#cfccd1" })
+        vim.api.nvim_set_hl(0, 'PmenuSel', { bg = '#312f2f' })
     end
 }

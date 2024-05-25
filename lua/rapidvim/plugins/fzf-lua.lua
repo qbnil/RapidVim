@@ -11,7 +11,6 @@ return {
                 -- First existing highlight group will be used
                 -- values in 3rd+ index will be passed raw
                 -- i.e:  `--color fg+:#010101:bold:underline`
-                ["fg+"] = { "fg" , { "Comment", "Normal" }, "bold", "underline" },
                 -- It is also possible to pass raw values directly
                 ["gutter"] = "-1"
             },
