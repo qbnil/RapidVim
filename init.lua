@@ -84,6 +84,7 @@ opt.guicursor = ""
 opt.fillchars = { eob = " " }
 opt.hlsearch = false
 opt.incsearch = true
+vim.opt.swapfile = false
 o.ignorecase = true
 o.smartcase = true
 o.mouse = "a"
