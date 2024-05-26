@@ -76,6 +76,10 @@ o.smartindent = true
 o.tabstop = 4
 o.softtabstop = 4
 
+-- Disable folding
+vim.opt.foldenable = false
+vim.opt.foldlevel = 0
+
 opt.guicursor = ""
 opt.fillchars = { eob = " " }
 opt.hlsearch = false
