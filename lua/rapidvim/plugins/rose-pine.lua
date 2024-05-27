@@ -18,7 +18,6 @@ return {
             },
         })
         vim.cmd('colorscheme rose-pine-main')
-        vim.cmd('colorscheme rose-pine-main')
         vim.api.nvim_set_hl(0, 'Pmenu', { bg = '#272727' })
         vim.api.nvim_set_hl(0, 'PmenuSel', { bg = '#525252' })
     end
