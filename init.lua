@@ -96,7 +96,7 @@ o.numberwidth = 2
 o.ruler = false
 
 -- disable nvim intro
--- opt.shortmess:append "sI"
+opt.shortmess:append "sI"
 
 o.signcolumn = "yes"
 o.splitbelow = true
