@@ -130,6 +130,13 @@ vim.keymap.set('n', '<leader>pv', function()
         vim.cmd 'Explore'
     end
 end, { silent = true })
+vim.keymap.set('n', '<leader>pV', function()
+    if vim.bo.filetype == 'netrw' then
+        vim.cmd 'Rexplore'
+    else
+        vim.cmd 'Vexplore'
+    end
+end, { silent = true })
 vim.keymap.set({"n"}, "<leader>L", "<cmd>Lazy<CR>", { silent = true })
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
