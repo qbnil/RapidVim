@@ -28,7 +28,7 @@ local opts = {
 		colorscheme = {
 			-- These are a list of plugins to load when installing a plugin
 			-- It's listed on order. catppuccin -> habamax
-			'rose-pine',
+			'tokyonight',
 		},
 	},
 	performance = {
@@ -96,7 +96,7 @@ o.numberwidth = 2
 o.ruler = false
 
 -- disable nvim intro
-opt.shortmess:append "sI"
+-- opt.shortmess:append "sI"
 
 o.signcolumn = "yes"
 o.splitbelow = true
