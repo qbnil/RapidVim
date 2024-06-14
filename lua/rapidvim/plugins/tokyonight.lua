@@ -1,15 +1,15 @@
 return {
     "folke/tokyonight.nvim",
-    event = "VeryLazy",
+    lazy = false,
     priority = 1000,
     opts = {},
     config = function()
         require("tokyonight").setup({
             -- your configuration comes here
             -- or leave it empty to use the default settings
-            style = "storm", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
+            style = "night", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
             light_style = "day", -- The theme is used when the background is set to light
-            transparent = false, -- Enable this to disable setting the background color
+            transparent = true, -- Enable this to disable setting the background color
             terminal_colors = true, -- Configure the colors used when opening a `:terminal` in [Neovim](https://github.com/neovim/neovim)
             styles = {
                 -- Style to be applied to different syntax groups
@@ -39,8 +39,8 @@ return {
             ---@param colors ColorScheme
             on_highlights = function(highlights, colors) end,
         })
-        -- vim.cmd('colorscheme tokyonight-night')
         -- vim.cmd('colorscheme tokyonight-storm')
-        vim.cmd('colorscheme tokyonight-day')
+        -- vim.cmd('colorscheme tokyonight-day')
+        vim.cmd('colorscheme tokyonight-night')
     end
 }

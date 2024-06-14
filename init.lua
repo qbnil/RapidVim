@@ -75,6 +75,7 @@ local g = vim.g
 -------------------------------------- options ------------------------------------------
 o.laststatus = 2
 o.showmode = false
+o.cmdheight = 1
 
 o.clipboard = "unnamedplus"
 o.cursorline = true

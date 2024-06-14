@@ -15,7 +15,7 @@ return {
                 ["gutter"] = "-1"
             },
             winopts = {
-                border = 'none',
+                border = 'single',
                 height = 0.75,
                 scrollbar = true,
                 width = 0.9,
@@ -36,7 +36,7 @@ return {
         --Keymaps:
         vim.keymap.set("n", "<leader>;", function()
             require("fzf-lua").files({
-                cmd = "fd --type f --hidden --follow --exclude '.git' --exclude '.local' --exclude '.cache' --exclude '.android' --exclude 'undodir' --exclude '.npm' --exclude '.mozilla' --exclude '.codeium' --exclude 'systemd' --exclude 'libreoffice' --exclude 'xournalpp' --exclude '.gnupg' --exclude 'gtk-2.0' --exclude 'gtk-3.0' --exclude 'mps-youtube' --exclude 'skypeforlinux' --exclude 'spotify' --exclude 'go' --exclude '.pki' --exclude 'mps' --exclude 'youtube-viewer' --exclude 'dconf' --exclude 'tpm' --exclude '.Xauthority' --exclude '.cargo' --exclude '.rustup' --exclude 'venv' --exclude 'functions' --exclude 'vscode-php-debug' --exclude 'node_modules' --exclude '.symfony5' --exclude 'fonts' --exclude 'VirtualBox' --exclude '.icons' --exclude '.themes' --exclude 'Images' --exclude 'bspwm-dotfiles' --exclude 'tmux-resurrect' --exclude 'misc' --exclude 'chromium'",
+                cmd = "fd --type f --hidden --follow --exclude '.git' --exclude '.local' --exclude '.cache' --exclude '.android' --exclude 'undodir' --exclude '.npm' --exclude '.mozilla' --exclude '.codeium' --exclude 'systemd' --exclude 'libreoffice' --exclude 'xournalpp' --exclude '.gnupg' --exclude 'gtk-2.0' --exclude 'gtk-3.0' --exclude 'mps-youtube' --exclude 'skypeforlinux' --exclude 'spotify' --exclude 'go' --exclude '.pki' --exclude 'mps' --exclude 'youtube-viewer' --exclude 'dconf' --exclude 'tpm' --exclude '.Xauthority' --exclude '.cargo' --exclude '.rustup' --exclude 'venv' --exclude 'functions' --exclude 'vscode-php-debug' --exclude 'node_modules' --exclude '.symfony5' --exclude 'fonts' --exclude 'VirtualBox' --exclude '.icons' --exclude '.themes' --exclude 'Images' --exclude 'bspwm-dotfiles' --exclude 'tmux-resurrect' --exclude 'misc' --exclude 'chromium' --exclude 'rices' --exclude 'ranger'",
                 -- winopts = { preview = { hidden = "hidden" } },
             })
         end, { silent = true, desc = "Fuzzy find files" })
@@ -147,7 +147,6 @@ return {
         "<cmd>lua require('fzf-lua').profiles({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>",
         { silent = true }
         )
-        -- vim.keymap.set("n", "<leader>fm", "<cmd>lua require('fzf-lua').manpages({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>", { silent = true })
         -- vim.keymap.set("n", "<leader>ll", "<cmd>lua require('fzf-lua').quickfix({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>", { silent = true })
         vim.keymap.set(
         "n",

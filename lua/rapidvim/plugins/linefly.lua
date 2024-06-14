@@ -1,4 +1,4 @@
 return {
-    'bluz71/nvim-linefly',
-    event = "VeryLazy"
+    "bluz71/nvim-linefly",
+    lazy = false
 }
