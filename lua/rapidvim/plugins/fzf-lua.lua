@@ -12,7 +12,7 @@ return {
                 -- values in 3rd+ index will be passed raw
                 -- i.e:  `--color fg+:#010101:bold:underline`
                 -- It is also possible to pass raw values directly
-                ["gutter"] = "-1"
+                -- ["gutter"] = "-1"
             },
             winopts = {
                 border = 'single',
@@ -24,20 +24,26 @@ return {
                     layout = "horizontal"
                 }
             },
-            grep = {
-                keymap = {
-                    fzf = {
-                        ["alt-s"] = "select-all+accept",
-                    },
-                },
+            keymap = {
+                builtin = {
+                    ['<A-f>'] = 'toggle-fullscreen',
+                    ['<A-t>']  = 'toggle-preview',
+                }
             },
+            -- grep = {
+            --     keymap = {
+            --         fzf = {
+            --             ["alt-s"] = "select-all+accept",
+            --         },
+            --     },
+            -- },
         })
 
         --Keymaps:
         vim.keymap.set("n", "<leader>;", function()
             require("fzf-lua").files({
                 cmd = "fd --type f --hidden --follow --exclude '.git' --exclude '.local' --exclude '.cache' --exclude '.android' --exclude 'undodir' --exclude '.npm' --exclude '.mozilla' --exclude '.codeium' --exclude 'systemd' --exclude 'libreoffice' --exclude 'xournalpp' --exclude '.gnupg' --exclude 'gtk-2.0' --exclude 'gtk-3.0' --exclude 'mps-youtube' --exclude 'skypeforlinux' --exclude 'spotify' --exclude 'go' --exclude '.pki' --exclude 'mps' --exclude 'youtube-viewer' --exclude 'dconf' --exclude 'tpm' --exclude '.Xauthority' --exclude '.cargo' --exclude '.rustup' --exclude 'venv' --exclude 'functions' --exclude 'vscode-php-debug' --exclude 'node_modules' --exclude '.symfony5' --exclude 'fonts' --exclude 'VirtualBox' --exclude '.icons' --exclude '.themes' --exclude 'Images' --exclude 'bspwm-dotfiles' --exclude 'tmux-resurrect' --exclude 'misc' --exclude 'chromium' --exclude 'rices' --exclude 'ranger'",
-                -- winopts = { preview = { hidden = "hidden" } },
+                winopts = { preview = { hidden = "hidden" }, height = 0.6, width = 0.6 },
             })
         end, { silent = true, desc = "Fuzzy find files" })
         vim.keymap.set({ "n" }, "<leader>fbl", function()
