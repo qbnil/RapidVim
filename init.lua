@@ -89,13 +89,16 @@ o.tabstop = 4
 o.softtabstop = 4
 
 -- Disable folding
-vim.opt.foldenable = false
-vim.opt.foldlevel = 0
+opt.foldenable = false
+opt.foldlevel = 0
+opt.pumblend = 0
 
 opt.guicursor = ""
 opt.fillchars = { eob = " " }
 opt.hlsearch = false
 opt.incsearch = true
+opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+opt.termguicolors = true
 vim.opt.swapfile = false
 o.ignorecase = true
 o.smartcase = true
@@ -111,6 +114,8 @@ o.ruler = false
 opt.shortmess:append("sI")
 
 o.signcolumn = "yes"
+vim.opt.scrolloff = 8
+vim.opt.isfname:append("@-@")
 o.splitbelow = true
 o.splitright = true
 o.timeoutlen = 400
@@ -179,6 +184,12 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	callback = function()
 		vim.highlight.on_yank({ higroup = "IncSearch", timeout = 80 })
 	end,
+})
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    vim.cmd("highlight StatusLine guibg=#252629 guifg=#ffffff")
+    vim.cmd("highlight StatusLineNC guibg=#252629 guifg=#ffffff")
+  end,
 })
 
 -- REQUIRING

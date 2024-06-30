@@ -4,6 +4,7 @@ return {
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-path",
         "hrsh7th/cmp-buffer",
+        "hrsh7th/cmp-nvim-lsp-signature-help",
         {
             "L3MON4D3/LuaSnip",
             build = "make install_jsregexp",
@@ -24,14 +25,36 @@ return {
         local cmp = require("cmp")
 
         cmp.setup({
+            preselect = 'item',
+            completion = {
+                completeopt = 'menu,menuone,noinsert'
+            },
+            formatting = {
+                fields = { 'abbr', 'kind', 'menu' },
+                -- here is where the change happens
+                format = function(entry, item)
+                    local menu_icon = {
+                        nvim_lsp = '[Lsp]',
+                        luasnip = '[Snip]',
+                        buffer = '[Buf]',
+                        path = '[Path]',
+                        nvim_lua = '[Lua]',
+                    }
+                    item.menu = menu_icon[entry.source.name]
+                    return item
+                end,
+            },
             sources = {
                 { name = "nvim_lsp" },
+                { name = "luasnip" },
                 { name = "path" },
                 { name = "buffer" },
-                { name = "luasnip" },
+                { name = 'nvim_lsp_signature_help' },
             },
-            window = {
-                documentation = cmp.config.window.bordered(),
+            appearance = {
+                menu = {
+                    direction = 'auto'
+                }
             },
             mapping = {
                 ["<C-b>"] = cmp.mapping.scroll_docs(-4),
@@ -76,4 +99,3 @@ return {
         })
     end,
 }
-

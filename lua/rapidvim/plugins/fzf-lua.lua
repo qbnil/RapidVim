@@ -12,7 +12,7 @@ return {
                 -- values in 3rd+ index will be passed raw
                 -- i.e:  `--color fg+:#010101:bold:underline`
                 -- It is also possible to pass raw values directly
-                -- ["gutter"] = "-1"
+                ["gutter"] = "-1"
             },
             winopts = {
                 border = 'single',
