@@ -32,7 +32,7 @@ return {
             },
             grep = {
                 grep_opts = "--binary-files=without-match --line-number --recursive --color=auto --perl-regexp --exclude-dir=.git --exclude-dir=node_modules -e",
-                rg_opts   = "--column --line-number --no-heading --color=always --smart-case --max-columns=4096 --exclude-dir=.git --exclude-dir=node_modules -e",
+                rg_opts   = "--column --line-number --no-heading --color=always --smart-case --max-columns=4096 -g '!.git' -g '!node_modules' -e",
                 keymap    = {
                     fzf = {
                         ["alt-s"] = "select-all+accept",
@@ -112,7 +112,7 @@ return {
         vim.keymap.set(
             "n",
             "<leader>fwn",
-            "<cmd>lua require('fzf-lua').live_grep_native({rg_opts = {'-g', '!.git'}}, {fzf_opts = {['--color'] =  'gutter:-1'}})<cr>",
+            "<cmd>lua require('fzf-lua').live_grep_native({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>",
             { silent = true }
         )
         vim.keymap.set(
