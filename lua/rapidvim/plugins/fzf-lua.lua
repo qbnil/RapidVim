@@ -30,13 +30,13 @@ return {
                     ['<A-t>']  = 'toggle-preview',
                 }
             },
-            -- grep = {
-            --     keymap = {
-            --         fzf = {
-            --             ["alt-s"] = "select-all+accept",
-            --         },
-            --     },
-            -- },
+            grep = {
+                keymap = {
+                    fzf = {
+                        ["alt-s"] = "select-all+accept",
+                    },
+                },
+            },
         })
 
         --Keymaps:
