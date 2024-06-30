@@ -5,7 +5,7 @@ return {
     config = function()
         require("sad").setup {
             debug = false, -- print debug info
-            diff = 'diff-so-fancy', -- you can use `less`, `diff-so-fancy`
+            diff = 'less', -- you can use `less`, `diff-so-fancy`
             ls_file = 'fd', -- also git ls-files
             exact = true, -- exact match
             vsplit = false, -- split sad window the screen vertically, when set to number

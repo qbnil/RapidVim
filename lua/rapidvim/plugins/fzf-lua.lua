@@ -6,7 +6,7 @@ return {
     config = function()
         -- calling `setup` is optional for customization
         require("fzf-lua").setup({
-            {'telescope'},
+            { 'telescope' },
             fzf_colors = {
                 -- First existing highlight group will be used
                 -- values in 3rd+ index will be passed raw
@@ -27,11 +27,13 @@ return {
             keymap = {
                 builtin = {
                     ['<A-f>'] = 'toggle-fullscreen',
-                    ['<A-t>']  = 'toggle-preview',
+                    ['<A-t>'] = 'toggle-preview',
                 }
             },
             grep = {
-                keymap = {
+                grep_opts = "--binary-files=without-match --line-number --recursive --color=auto --perl-regexp --exclude-dir=.git --exclude-dir=node_modules -e",
+                rg_opts   = "--column --line-number --no-heading --color=always --smart-case --max-columns=4096 --exclude-dir=.git --exclude-dir=node_modules -e",
+                keymap    = {
                     fzf = {
                         ["alt-s"] = "select-all+accept",
                     },
@@ -42,7 +44,8 @@ return {
         --Keymaps:
         vim.keymap.set("n", "<leader>;", function()
             require("fzf-lua").files({
-                cmd = "fd --type f --hidden --follow --exclude '.git' --exclude '.local' --exclude '.cache' --exclude '.android' --exclude 'undodir' --exclude '.npm' --exclude '.mozilla' --exclude '.codeium' --exclude 'systemd' --exclude 'libreoffice' --exclude 'xournalpp' --exclude '.gnupg' --exclude 'gtk-2.0' --exclude 'gtk-3.0' --exclude 'mps-youtube' --exclude 'skypeforlinux' --exclude 'spotify' --exclude 'go' --exclude '.pki' --exclude 'mps' --exclude 'youtube-viewer' --exclude 'dconf' --exclude 'tpm' --exclude '.Xauthority' --exclude '.cargo' --exclude '.rustup' --exclude 'venv' --exclude 'functions' --exclude 'vscode-php-debug' --exclude 'node_modules' --exclude '.symfony5' --exclude 'fonts' --exclude 'VirtualBox' --exclude '.icons' --exclude '.themes' --exclude 'Images' --exclude 'bspwm-dotfiles' --exclude 'tmux-resurrect' --exclude 'misc' --exclude 'chromium' --exclude 'rices' --exclude 'ranger'",
+                cmd =
+                "fd --type f --hidden --follow --exclude '.git' --exclude '.local' --exclude '.cache' --exclude '.android' --exclude 'undodir' --exclude '.npm' --exclude '.mozilla' --exclude '.codeium' --exclude 'systemd' --exclude 'libreoffice' --exclude 'xournalpp' --exclude '.gnupg' --exclude 'gtk-2.0' --exclude 'gtk-3.0' --exclude 'mps-youtube' --exclude 'skypeforlinux' --exclude 'spotify' --exclude 'go' --exclude '.pki' --exclude 'mps' --exclude 'youtube-viewer' --exclude 'dconf' --exclude 'tpm' --exclude '.Xauthority' --exclude '.cargo' --exclude '.rustup' --exclude 'venv' --exclude 'functions' --exclude 'vscode-php-debug' --exclude 'node_modules' --exclude '.symfony5' --exclude 'fonts' --exclude 'VirtualBox' --exclude '.icons' --exclude '.themes' --exclude 'Images' --exclude 'bspwm-dotfiles' --exclude 'tmux-resurrect' --exclude 'misc' --exclude 'chromium' --exclude 'rices' --exclude 'ranger'",
                 winopts = { preview = { hidden = "hidden" }, height = 0.6, width = 0.6 },
             })
         end, { silent = true, desc = "Fuzzy find files" })
@@ -56,181 +59,182 @@ return {
                 fzf_opts = { ["--color"] = "gutter:-1" },
             })
         end, { silent = true, desc = "Find lines" })
-        vim.keymap.set("n", "<leader>fo", "<cmd>lua require('fzf-lua').oldfiles({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>", { silent = true })
+        vim.keymap.set("n", "<leader>fo",
+            "<cmd>lua require('fzf-lua').oldfiles({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>", { silent = true })
         vim.keymap.set(
-        "n",
-        "<leader>\\",
-        "<cmd>lua require('fzf-lua').buffers({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>",
-        { silent = true }
+            "n",
+            "<leader>\\",
+            "<cmd>lua require('fzf-lua').buffers({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>",
+            { silent = true }
         )
         vim.keymap.set(
-        "n",
-        "<leader>fsh",
-        "<cmd>lua require('fzf-lua').search_history({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>",
-        { silent = true }
+            "n",
+            "<leader>fsh",
+            "<cmd>lua require('fzf-lua').search_history({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>",
+            { silent = true }
         )
         vim.keymap.set(
-        "n",
-        "<leader>:",
-        "<cmd>lua require('fzf-lua').builtin({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>",
-        { silent = true }
+            "n",
+            "<leader>:",
+            "<cmd>lua require('fzf-lua').builtin({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>",
+            { silent = true }
         )
         vim.keymap.set(
-        "n",
-        "<leader>fh",
-        "<cmd>lua require('fzf-lua').command_history({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>",
-        { silent = true }
+            "n",
+            "<leader>fh",
+            "<cmd>lua require('fzf-lua').command_history({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>",
+            { silent = true }
         )
         vim.keymap.set(
-        "n",
-        "<leader>fc",
-        "<cmd>lua require('fzf-lua').commands({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>",
-        { silent = true }
+            "n",
+            "<leader>fc",
+            "<cmd>lua require('fzf-lua').commands({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>",
+            { silent = true }
         )
         vim.keymap.set(
-        "n",
-        "<leader>fj",
-        "<cmd>lua require('fzf-lua').jumps({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>",
-        { silent = true }
+            "n",
+            "<leader>fj",
+            "<cmd>lua require('fzf-lua').jumps({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>",
+            { silent = true }
         )
         vim.keymap.set(
-        "n",
-        "<leader>fk",
-        "<cmd>lua require('fzf-lua').keymaps({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>",
-        { silent = true }
+            "n",
+            "<leader>fk",
+            "<cmd>lua require('fzf-lua').keymaps({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>",
+            { silent = true }
         )
         vim.keymap.set(
-        "n",
-        "<leader>fh",
-        "<cmd>lua require('fzf-lua').help_tags({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>",
-        { silent = true }
+            "n",
+            "<leader>fh",
+            "<cmd>lua require('fzf-lua').help_tags({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>",
+            { silent = true }
         )
         vim.keymap.set(
-        "n",
-        "<leader>fwn",
-        "<cmd>lua require('fzf-lua').live_grep_native({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>",
-        { silent = true }
+            "n",
+            "<leader>fwn",
+            "<cmd>lua require('fzf-lua').live_grep_native({rg_opts = {'-g', '!.git'}}, {fzf_opts = {['--color'] =  'gutter:-1'}})<cr>",
+            { silent = true }
         )
         vim.keymap.set(
-        "n",
-        "<leader>fwg",
-        "<cmd>lua require('fzf-lua').live_grep_glob({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>",
-        { silent = true }
+            "n",
+            "<leader>fwg",
+            "<cmd>lua require('fzf-lua').live_grep_glob({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>",
+            { silent = true }
         )
         vim.keymap.set(
-        "n",
-        "<leader>fr",
-        "<cmd>lua require('fzf-lua').resume({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>",
-        { silent = true }
+            "n",
+            "<leader>fr",
+            "<cmd>lua require('fzf-lua').resume({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>",
+            { silent = true }
         )
         vim.keymap.set(
-        "n",
-        "<leader>fwp",
-        "<cmd>lua require('fzf-lua').grep_project({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>",
-        { silent = true }
+            "n",
+            "<leader>fwp",
+            "<cmd>lua require('fzf-lua').grep_project({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>",
+            { silent = true }
         )
         vim.keymap.set(
-        "n",
-        "<leader>fwt",
-        "<cmd>lua require('fzf-lua').grep_cword({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>",
-        { silent = true }
+            "n",
+            "<leader>fwt",
+            "<cmd>lua require('fzf-lua').grep_cword({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>",
+            { silent = true }
         )
         vim.keymap.set(
-        "n",
-        "<leader>fa",
-        "<cmd>lua require('fzf-lua').autocmds({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>",
-        { silent = true }
+            "n",
+            "<leader>fa",
+            "<cmd>lua require('fzf-lua').autocmds({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>",
+            { silent = true }
         )
         vim.keymap.set(
-        "n",
-        "<leader>/",
-        "<cmd>lua require('fzf-lua').grep_curbuf({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>",
-        { silent = true }
+            "n",
+            "<leader>/",
+            "<cmd>lua require('fzf-lua').grep_curbuf({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>",
+            { silent = true }
         )
         vim.keymap.set(
-        "n",
-        "<leader>fp",
-        "<cmd>lua require('fzf-lua').profiles({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>",
-        { silent = true }
+            "n",
+            "<leader>fp",
+            "<cmd>lua require('fzf-lua').profiles({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>",
+            { silent = true }
         )
         -- vim.keymap.set("n", "<leader>ll", "<cmd>lua require('fzf-lua').quickfix({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>", { silent = true })
         vim.keymap.set(
-        "n",
-        "<leader>ll",
-        "<cmd>lua require('fzf-lua').grep({search='TODO|HACK|PERF|NOTE|FIX|WARN|TEST', no_esc=true, fzf_opts = {['--color'] = 'gutter:-1'}})<cr>",
-        { silent = true }
+            "n",
+            "<leader>ll",
+            "<cmd>lua require('fzf-lua').grep({search='TODO|HACK|PERF|NOTE|FIX|WARN|TEST', no_esc=true, fzf_opts = {['--color'] = 'gutter:-1'}})<cr>",
+            { silent = true }
         )
         vim.keymap.set(
-        "n",
-        "<leader>fm",
-        "<cmd>lua require'fzf-lua'.man_pages({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>"
+            "n",
+            "<leader>fm",
+            "<cmd>lua require'fzf-lua'.man_pages({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>"
         )
         -- lsp
         vim.keymap.set(
-        "n",
-        "<leader>lr",
-        "<cmd>lua require('fzf-lua').lsp_references({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>"
+            "n",
+            "<leader>lr",
+            "<cmd>lua require('fzf-lua').lsp_references({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>"
         )
         vim.keymap.set(
-        "n",
-        "<leader>lgd",
-        "<cmd>lua require('fzf-lua').lsp_definitions({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>"
+            "n",
+            "<leader>lgd",
+            "<cmd>lua require('fzf-lua').lsp_definitions({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>"
         )
         vim.keymap.set(
-        "n",
-        "<leader>ld",
-        "<cmd>lua require('fzf-lua').lsp_declarations({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>"
+            "n",
+            "<leader>ld",
+            "<cmd>lua require('fzf-lua').lsp_declarations({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>"
         )
         vim.keymap.set(
-        "n",
-        "<leader>li",
-        "<cmd>lua require('fzf-lua').lsp_implementations({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>"
+            "n",
+            "<leader>li",
+            "<cmd>lua require('fzf-lua').lsp_implementations({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>"
         )
         vim.keymap.set(
-        "n",
-        "<leader>ls",
-        "<cmd>lua require('fzf-lua').lsp_document_symbols({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>"
+            "n",
+            "<leader>ls",
+            "<cmd>lua require('fzf-lua').lsp_document_symbols({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>"
         )
         vim.keymap.set(
-        "n",
-        "<leader>ltd",
-        "<cmd>lua require('fzf-lua').lsp_typedefs({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>"
+            "n",
+            "<leader>ltd",
+            "<cmd>lua require('fzf-lua').lsp_typedefs({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>"
         )
         vim.keymap.set(
-        "n",
-        "<leader>lgn",
-        "<cmd>lua require('fzf-lua').diagnostics_document({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>"
+            "n",
+            "<leader>lgn",
+            "<cmd>lua require('fzf-lua').diagnostics_document({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>"
         )
         -- git
         vim.keymap.set(
-        "n",
-        "<leader>gb",
-        "<cmd>lua require('fzf-lua').git_branches({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>",
-        { silent = true }
+            "n",
+            "<leader>gb",
+            "<cmd>lua require('fzf-lua').git_branches({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>",
+            { silent = true }
         )
         vim.keymap.set(
-        "n",
-        "<leader>gf",
-        "<cmd>lua require('fzf-lua').git_files({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>",
-        { silent = true }
+            "n",
+            "<leader>gf",
+            "<cmd>lua require('fzf-lua').git_files({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>",
+            { silent = true }
         )
         vim.keymap.set(
-        "n",
-        "<leader>fgs",
-        "<cmd>lua require('fzf-lua').git_status({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>",
-        { silent = true }
+            "n",
+            "<leader>fgs",
+            "<cmd>lua require('fzf-lua').git_status({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>",
+            { silent = true }
         )
         vim.keymap.set(
-        "n",
-        "<leader>gc",
-        "<cmd>lua require('fzf-lua').git_commits({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>",
-        { silent = true }
+            "n",
+            "<leader>gc",
+            "<cmd>lua require('fzf-lua').git_commits({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>",
+            { silent = true }
         )
         vim.keymap.set(
-        "n",
-        "<leader>fgs",
-        "<cmd>lua require('fzf-lua').git_stash({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>",
-        { silent = true }
+            "n",
+            "<leader>fgs",
+            "<cmd>lua require('fzf-lua').git_stash({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>",
+            { silent = true }
         )
     end,
 }
