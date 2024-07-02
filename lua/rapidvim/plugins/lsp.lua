@@ -5,10 +5,16 @@ return {
         "hrsh7th/cmp-nvim-lsp",
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
+        "j-hui/fidget.nvim",
     },
     config = function()
         local lspconfig = require("lspconfig")
-        local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+        local cmp_lsp = require("cmp_nvim_lsp")
+        local capabilities = vim.tbl_deep_extend(
+            "force",
+            {},
+            vim.lsp.protocol.make_client_capabilities(),
+            cmp_lsp.default_capabilities())
         capabilities.textDocument.completion.completionItem.snippetSupport = true
         vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
             border = "single",
@@ -22,6 +28,7 @@ return {
                 end
             end,
         })
+        require("fidget").setup({})
         require("mason").setup()
         require("mason-lspconfig").setup({
             ensure_installed = {
@@ -81,7 +88,7 @@ return {
 
         vim.diagnostic.config({
             --virtual_text = {
-                -- Only show virtual text for error messages
+            -- Only show virtual text for error messages
             --    severity = vim.diagnostic.severity.ERROR,
             --},
             signs = true,
@@ -138,4 +145,3 @@ return {
         end, {})
     end,
 }
-
