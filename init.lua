@@ -94,7 +94,6 @@ opt.foldlevel = 0
 opt.pumblend = 0
 
 opt.guicursor = ""
-opt.fillchars = { eob = " " }
 opt.hlsearch = false
 opt.incsearch = true
 opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
@@ -184,12 +183,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	callback = function()
 		vim.highlight.on_yank({ higroup = "IncSearch", timeout = 80 })
 	end,
-})
-vim.api.nvim_create_autocmd("VimEnter", {
-  callback = function()
-    vim.cmd("highlight StatusLine guibg=#252629 guifg=#ffffff")
-    vim.cmd("highlight StatusLineNC guibg=#252629 guifg=#ffffff")
-  end,
 })
 
 -- REQUIRING

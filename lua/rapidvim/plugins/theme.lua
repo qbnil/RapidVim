@@ -17,6 +17,8 @@ return {
             TabLine = { bg = 'none' },
             TabLineSel = { bg = 'none' },
             TabLineFill = { bg = 'none' },
+            StatusLine = { fg = '#ffffff', bg = '#252629' },
+            StatusLineNC = { link = "StatusLine" },
         },
     },
     config = function(_, opts)
