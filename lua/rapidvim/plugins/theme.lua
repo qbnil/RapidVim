@@ -6,7 +6,7 @@ return {
         styles = {
             bold = true,
             italic = false,
-            transparency = true,
+            -- transparency = true,
         },
         highlight_groups = {
             ['@function.builtin.lua'] = { italic = false },
@@ -22,6 +22,8 @@ return {
             NormalFloat = { bg = '#272627' },
             FloatBorder = { bg = '#272627' },
             FzfLuaTitle = { bg = '#272627' },
+            FzfLuaPreviewTitle = { bg = '#262626' },
+            FzfLuaPreviewNormal = { bg = '#262626' },
         },
     },
     config = function(_, opts)

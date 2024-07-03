@@ -8,6 +8,7 @@ return {
 			highlight = {
 				enable = true,
 				disable = { "json" },
+                additional_vim_regex_highlighting = false,
 			},
 			ensure_installed = {
 				"lua",
