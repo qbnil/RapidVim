@@ -28,7 +28,7 @@ local opts = {
 		colorscheme = {
 			-- These are a list of plugins to load when installing a plugin
 			-- It's listed on order. catppuccin -> habamax
-			"tokyonight",
+			"rose-pine",
 		},
 	},
 	performance = {

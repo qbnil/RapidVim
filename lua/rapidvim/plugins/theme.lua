@@ -17,8 +17,11 @@ return {
             TabLine = { bg = 'none' },
             TabLineSel = { bg = 'none' },
             TabLineFill = { bg = 'none' },
-            StatusLine = { fg = '#ffffff', bg = '#252629' },
+            StatusLine = { fg = '#ffffff', bg = '#2c2a2c' },
             StatusLineNC = { link = "StatusLine" },
+            NormalFloat = { bg = '#272627' },
+            FloatBorder = { bg = '#272627' },
+            FzfLuaTitle = { bg = '#272627' },
         },
     },
     config = function(_, opts)
