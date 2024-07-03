@@ -5,7 +5,6 @@ return {
         "hrsh7th/cmp-nvim-lsp",
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
-        "j-hui/fidget.nvim",
     },
     config = function()
         local lspconfig = require("lspconfig")
@@ -28,7 +27,6 @@ return {
                 end
             end,
         })
-        require("fidget").setup({})
         require("mason").setup()
         require("mason-lspconfig").setup({
             ensure_installed = {
