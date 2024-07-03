@@ -15,7 +15,7 @@ return {
                 ["gutter"] = "-1"
             },
             winopts = {
-                border = 'empty',
+                border = 'single',
                 height = 0.75,
                 scrollbar = true,
                 width = 0.9,
