@@ -6,7 +6,6 @@ return {
         styles = {
             bold = true,
             italic = false,
-            -- transparency = true,
         },
         highlight_groups = {
             ['@function.builtin.lua'] = { italic = false },
@@ -19,11 +18,7 @@ return {
             TabLineFill = { bg = 'none' },
             StatusLine = { fg = '#ffffff', bg = '#2c2a2c' },
             StatusLineNC = { link = "StatusLine" },
-            NormalFloat = { bg = '#272627' },
-            FloatBorder = { bg = '#272627' },
             FzfLuaTitle = { bg = '#272627' },
-            FzfLuaPreviewTitle = { bg = '#262626' },
-            FzfLuaPreviewNormal = { bg = '#262626' },
         },
     },
     config = function(_, opts)
