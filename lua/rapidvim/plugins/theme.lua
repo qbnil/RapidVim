@@ -16,7 +16,7 @@ return {
             TabLine = { bg = 'none' },
             TabLineSel = { bg = 'none' },
             TabLineFill = { bg = 'none' },
-            StatusLine = { fg = '#ffffff', bg = '#2c2a2c' },
+            StatusLine = { fg = '#777693', bg = '#2c2a2c' },
             StatusLineNC = { link = "StatusLine" },
             FzfLuaTitle = { bg = '#272627' },
         },
