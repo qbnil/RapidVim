@@ -1,65 +1,65 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-	vim.fn.system({
-		"git",
-		"clone",
-		"--filter=blob:none",
-		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable", -- latest stable release
-		lazypath,
-	})
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+    })
 end
 vim.opt.rtp:prepend(lazypath)
 
 -- OPTS FOR LAZYVIM SETUP ARGUMENT:
 local opts = {
-	change_detection = {
-		notify = false,
-	},
-	defaults = {
-		-- Lazy-load by default
-		lazy = true,
-		-- Use the latest version of the plugin (screw semantic versioning)
-		version = false,
-	},
-	install = {
-		-- Install missing plugins.
-		missing = true,
-		colorscheme = {
-			-- These are a list of plugins to load when installing a plugin
-			-- It's listed on order. catppuccin -> habamax
-			"rose-pine",
-		},
-	},
-	performance = {
-		rtp = {
-			disabled_plugins = {
-				-- I can disable more plugins such as `rplugin` and `netrw`, it'll decrease functionality.
-				-- "gzip",
-				"tarPlugin",
-				"tohtml",
-				"zipPlugin",
-				"matchit",
-				-- "matchparen",
-				-- "netrwPlugin",
-				"rplugin",
-				"nvim",
-				"tutor",
-				"spellfile",
-				"gzip",
-				"zip",
-				"tar",
-				"getscript",
-				"getscriptPlugin",
-				"vimball",
-				"vimballPlugin",
-				"2html_plugin",
-				"logipat",
-				"rrhelper",
-				"spellfile_plugin",
-			},
-		},
-	},
+    change_detection = {
+        notify = false,
+    },
+    defaults = {
+        -- Lazy-load by default
+        lazy = true,
+        -- Use the latest version of the plugin (screw semantic versioning)
+        version = false,
+    },
+    install = {
+        -- Install missing plugins.
+        missing = true,
+        colorscheme = {
+            -- These are a list of plugins to load when installing a plugin
+            -- It's listed on order. catppuccin -> habamax
+            "rose-pine",
+        },
+    },
+    performance = {
+        rtp = {
+            disabled_plugins = {
+                -- I can disable more plugins such as `rplugin` and `netrw`, it'll decrease functionality.
+                -- "gzip",
+                "tarPlugin",
+                "tohtml",
+                "zipPlugin",
+                "matchit",
+                -- "matchparen",
+                -- "netrwPlugin",
+                "rplugin",
+                "nvim",
+                "tutor",
+                "spellfile",
+                "gzip",
+                "zip",
+                "tar",
+                "getscript",
+                "getscriptPlugin",
+                "vimball",
+                "vimballPlugin",
+                "2html_plugin",
+                "logipat",
+                "rrhelper",
+                "spellfile_plugin",
+            },
+        },
+    },
 }
 -- Loading my plugins
 -- { import = "lazyvim.plugins.extras.coding.copilot" },
@@ -141,18 +141,18 @@ vim.env.PATH = vim.fn.stdpath("data") .. "/mason/bin" .. (is_windows and ";" or 
 
 -- REMAPS:
 vim.keymap.set("n", "<leader>pv", function()
-	if vim.bo.filetype == "netrw" then
-		vim.cmd("Rexplore")
-	else
-		vim.cmd("Explore")
-	end
+    if vim.bo.filetype == "netrw" then
+        vim.cmd("Rexplore")
+    else
+        vim.cmd("Explore")
+    end
 end, { silent = true })
 vim.keymap.set("n", "<leader>pV", function()
-	if vim.bo.filetype == "netrw" then
-		vim.cmd("Rexplore")
-	else
-		vim.cmd("Vexplore")
-	end
+    if vim.bo.filetype == "netrw" then
+        vim.cmd("Rexplore")
+    else
+        vim.cmd("Vexplore")
+    end
 end, { silent = true })
 vim.keymap.set({ "n" }, "<leader>L", "<cmd>Lazy<CR>", { silent = true })
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -180,13 +180,13 @@ vim.cmd([[nnoremap <silent><leader>= :vert resize<CR>:resize<CR>:normal! ze<CR>]
 
 -- AUTOCMDS:
 vim.api.nvim_create_autocmd("TextYankPost", {
-	group = vim.api.nvim_create_augroup("highlight_yank", { clear = true }),
-	callback = function()
-		vim.highlight.on_yank({ higroup = "IncSearch", timeout = 80 })
-	end,
+    group = vim.api.nvim_create_augroup("highlight_yank", { clear = true }),
+    callback = function()
+        vim.highlight.on_yank({ higroup = "IncSearch", timeout = 80 })
+    end,
 })
 
 -- REQUIRING
 require("lazy").setup({
-	{ import = "rapidvim.plugins" },
+    { import = "rapidvim.plugins" },
 }, opts)
