@@ -19,6 +19,7 @@ return {
             -- StatusLine = { fg = '#777693', bg = '#2c2a2c' },
             StatusLineNC = { link = "StatusLine" },
             FzfLuaTitle = { bg = '#272627' },
+            StatusLineTerm = { bg = '#262626', fg = '#8787aa' },
         },
     },
     config = function(_, opts)

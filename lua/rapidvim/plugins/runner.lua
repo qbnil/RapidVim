@@ -30,8 +30,7 @@ return {
                 },
             },
         })
-        vim.keymap.set("n", "<leader>r", ":RunCode<CR>", { noremap = true, silent = false })
-        vim.keymap.set("v", "<leader>r", ":RunCode<CR>", { noremap = true, silent = false })
+        vim.keymap.set("n", "<leader>R", ":RunCode<CR>", { noremap = true, silent = false })
         vim.keymap.set("n", "<leader>fr", ":RunFile<CR>", { noremap = true, silent = false })
         vim.keymap.set("n", "<leader>pr", ":RunProject<CR>", { noremap = true, silent = false })
         vim.keymap.set("n", "<leader>cr", ":RunClose<CR>", { noremap = true, silent = false })
