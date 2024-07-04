@@ -1,0 +1,9 @@
+{
+  "keymap": {
+    "prefix": "key",
+    "body": [
+        "vim.keymap.set(\"$1\", \"$2\", \"$3\")"
+    ],
+    "description": "set a keymap"
+  }
+}
