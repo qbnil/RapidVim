@@ -34,6 +34,11 @@ return {
                     "/.local/share/nvim/mason/packages/js-debug-adapter/js-debug/src/dapDebugServer.js", "${port}," },
             },
         }
+        dap.adapters.python = {
+            type = 'executable';
+            command = os.getenv('HOME') .. '/.local/share/nvim/mason/packages/debugpy/venv/bin/python';
+            args = { '-m', 'debugpy.adapter' };
+        }
         dap.configurations.javascript = {
             {
                 type = "pwa-node",
@@ -67,6 +72,17 @@ return {
             args = {
                 os.getenv("HOME") .. "/.local/share/nvim/mason/packages/php-debug-adapter/extension/out/phpDebug.js",
             },
+        }
+        dap.configurations.python = {
+            {
+                type = 'python',
+                request = 'launch',
+                name = "Launch file",
+                program = "${file}",
+                pythonPath = function()
+                    return '/usr/bin/python'
+                end,
+            }
         }
         dap.configurations.php = {
             {
