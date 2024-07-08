@@ -1,0 +1,11 @@
+{
+  "main func": {
+    "prefix": "main",
+    "body": [
+        "int main($1) {",
+        "   ${0:--code}",
+        "}"
+    ],
+    "description": "default main function"
+  }
+}
