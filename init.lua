@@ -128,6 +128,8 @@ o.updatetime = 250
 opt.whichwrap:append("<>[]hl")
 g.mapleader = " "
 g.netrw_winsize = 15
+g.nofixeol = true
+g.nofixendofline = true
 
 -- disable some default providers
 g["loaded_node_provider"] = 0
