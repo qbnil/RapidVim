@@ -6,8 +6,40 @@ return {
         "hrsh7th/cmp-path",
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-nvim-lua",
+        {
+            "L3MON4D3/LuaSnip",
+            event = "InsertEnter",
+            build = "make install_jsregexp",
+            dependencies = {
+                "rafamadriz/friendly-snippets",
+                "saadparwaiz1/cmp_luasnip",
+            },
+        }
     },
-    init = function()
+    config = function()
+
+        local ls = require('luasnip')
+
+        local s = ls.snippet
+        local t = ls.text_node
+        local i = ls.insert_node
+
+        -- Lazy loading snippets
+        require("luasnip.loaders.from_vscode").lazy_load()
+        require("luasnip.loaders.from_snipmate").lazy_load()
+
+        ls.add_snippets("lua", {
+            s('key', {
+                t('vim.keymap.set()')
+            })
+        })
+
+        -- Luasnip config
+        ls.config.set_config({
+            history = false,
+            updateevents = "TextChanged,TextChangedI",
+        })
+
         vim.opt.completeopt = { "menu", "menuone", "noselect" }
         vim.opt.shortmess:append("c")
 
@@ -53,7 +85,7 @@ return {
                 ["<Tab>"] = cmp.mapping(function(fallback)
                     if cmp.visible() then
                         cmp.select_next_item()
-                    elseif require("luasnip").expand_or_jumpable() then
+                    elseif ls.expand_or_jumpable() then
                         vim.fn.feedkeys(
                             vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true),
                             ""
@@ -66,7 +98,7 @@ return {
                 ["<S-Tab>"] = cmp.mapping(function(fallback)
                     if cmp.visible() then
                         cmp.select_prev_item()
-                    elseif require("luasnip").jumpable(-1) then
+                    elseif ls.jumpable(-1) then
                         vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-jump-prev", true, true, true), "")
                     else
                         fallback()
@@ -77,15 +109,9 @@ return {
             -- Enable luasnip to handle snippet expansion for nvim-cmp
             snippet = {
                 expand = function(args)
-                    require("luasnip").lsp_expand(args.body)
+                    ls.lsp_expand(args.body)
                 end,
             },
-        })
-
-        local ls = require("luasnip")
-        ls.config.set_config({
-            history = false,
-            updateevents = "TextChanged,TextChangedI",
         })
     end,
 }

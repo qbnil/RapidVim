@@ -91,6 +91,10 @@ return {
             --severity_sort = true,
             float = {
                 border = "single",
+                style = 'minimal',
+                source = 'always',
+                header = '',
+                prefix = '',
                 width = 60,
                 height = 10,
             },

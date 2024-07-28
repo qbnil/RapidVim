@@ -177,6 +177,7 @@ vim.keymap.set("n", "<A-r>", [[<C-^>]])
 vim.keymap.set("n", "<leader>hk", "<cmd>split<CR>")
 vim.keymap.set("n", "<leader>vk", "<cmd>vsplit<CR>")
 vim.keymap.set("n", "<leader>wa", "<cmd>wqall<CR>")
+vim.keymap.set("n", "<leader>oc", "<cmd>set formatoptions-=cro<CR>")
 vim.cmd([[nnoremap <silent><leader>= :vert resize<CR>:resize<CR>:normal! ze<CR>]])
 
 -- AUTOCMDS:
