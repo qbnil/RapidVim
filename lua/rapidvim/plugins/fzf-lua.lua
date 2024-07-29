@@ -17,7 +17,6 @@ return {
             winopts = {
                 border = 'none',
                 height = 0.75,
-                scrollbar = true,
                 width = 0.9,
                 preview = {
                     horizontal = "right:65%",

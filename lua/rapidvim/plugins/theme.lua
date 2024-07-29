@@ -6,7 +6,7 @@ return {
         styles = {
             bold = true,
             italic = false,
-            transparency = true,
+            disable_backround = true,
         },
         highlight_groups = {
             ['@function.builtin.lua'] = { italic = false },
@@ -22,14 +22,13 @@ return {
             FzfLuaTitle = { bg = '#272627' },
             StatusLineTerm = { bg = '#262626', fg = '#8787aa' },
             StatusLineTermNC = { bg = '#262626', fg = '#8787aa' },
-            NormalFloat = { bg = '#262626', fg = '#8787aa' },
-            FloatBorder = { bg = '#262626', fg = '#8787aa' },
+            NormalFloat = { bg = 'none' },
+            Normal = { bg = 'none' },
+            FzfLuaPreviewNormal = { bg = '#0a0b0d' },
         },
     },
     config = function(_, opts)
         require('rose-pine').setup(opts)
         vim.cmd('colorscheme rose-pine-main')
-        -- vim.api.nvim_set_hl(0, 'Pmenu', { bg = '#272727' })
-        -- vim.api.nvim_set_hl(0, 'PmenuSel', { bg = '#525252' })
     end,
 }
