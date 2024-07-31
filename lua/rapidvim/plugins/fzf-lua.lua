@@ -15,7 +15,7 @@ return {
                 ["gutter"] = "-1"
             },
             winopts = {
-                border = 'none',
+                border = 'single',
                 height = 0.75,
                 width = 0.9,
                 preview = {

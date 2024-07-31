@@ -20,10 +20,12 @@ return {
             TabLineFill = { bg = 'none' },
             StatusLine = { fg = '#777693', bg = '#2c2a2c' },
             StatusLineNC = { link = "StatusLine" },
-            FzfLuaTitle = { bg = '#272627' },
+            FzfLuaTitle = { bg = 'none' },
             StatusLineTerm = { bg = '#262626', fg = '#8787aa' },
             StatusLineTermNC = { bg = '#262626', fg = '#8787aa' },
             FzfLuaPreviewTitle = { bg = 'none' },
+            NormalFloat = { bg = 'none' },
+            NormalNC = { bg = 'none' }
         },
     },
     config = function(_, opts)
