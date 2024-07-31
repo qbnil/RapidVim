@@ -3,10 +3,11 @@ return {
     name = 'rose-pine',
     lazy = false,
     opts = {
+        disable_background = true,
+        extend_background_behind_borders = false,
         styles = {
             bold = true,
             italic = false,
-            disable_backround = true,
         },
         highlight_groups = {
             ['@function.builtin.lua'] = { italic = false },
@@ -22,9 +23,7 @@ return {
             FzfLuaTitle = { bg = '#272627' },
             StatusLineTerm = { bg = '#262626', fg = '#8787aa' },
             StatusLineTermNC = { bg = '#262626', fg = '#8787aa' },
-            NormalFloat = { bg = 'none' },
-            Normal = { bg = 'none' },
-            FzfLuaPreviewNormal = { bg = '#0a0b0d' },
+            FzfLuaPreviewTitle = { bg = 'none' },
         },
     },
     config = function(_, opts)

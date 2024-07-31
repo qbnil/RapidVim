@@ -15,15 +15,6 @@ return {
             vim.lsp.protocol.make_client_capabilities(),
             cmp_lsp.default_capabilities())
         capabilities.textDocument.completion.completionItem.snippetSupport = true
-        vim.api.nvim_create_autocmd("LspAttach", {
-            callback = function(args)
-                local client = vim.lsp.get_client_by_id(args.data.client_id)
-                client.server_capabilities.semanticTokensProvider = nil
-                if client.server_capabilities.hoverProvider then
-                    vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = args.buf })
-                end
-            end,
-        })
         require("mason").setup()
         require("mason-lspconfig").setup({
             ensure_installed = {
@@ -31,7 +22,7 @@ return {
             },
             handlers = {
                 function(server_name) -- default handler (optional)
-                    require("lspconfig")[server_name].setup({
+                    lspconfig[server_name].setup({
                         capabilities = capabilities,
                     })
                 end,
