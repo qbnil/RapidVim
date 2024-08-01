@@ -50,6 +50,11 @@ return {
             completion = {
                 completeopt = "menu,menuone,noinsert",
             },
+            window = {
+                documentation = {
+                    border = 'single',
+                }
+            },
             formatting = {
                 fields = { "abbr", "kind", "menu" },
                 -- here is where the change happens

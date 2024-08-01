@@ -36,5 +36,6 @@ vim.keymap.set("n", "<leader>js", "<cmd>split<CR>")
 vim.keymap.set("n", "<leader>ls", "<cmd>vsplit<CR>")
 vim.keymap.set("n", "<leader>wa", "<cmd>wqall<CR>")
 vim.keymap.set("n", "<leader>oc", "<cmd>set formatoptions-=cro<CR>")
+vim.keymap.set("n", "<leader>eld", "<cmd>g/^$/d<CR>")
 vim.cmd([[nnoremap <silent><leader>= :vert resize<CR>:resize<CR>:normal! ze<CR>]])
 
