@@ -15,11 +15,13 @@ o.cursorline = true
 o.cursorlineopt = "number"
 
 -- Indenting
-o.expandtab = true
-o.shiftwidth = 4
-o.smartindent = true
-o.tabstop = 4
-o.softtabstop = 4
+opt.tabstop = 4
+opt.smartindent = true
+opt.shiftwidth = 4
+opt.expandtab = true
+opt.softtabstop = 4
+opt.smartindent = true
+vim.cmd("autocmd BufEnter * setlocal noautoindent")
 
 -- Disable folding
 opt.foldenable = false

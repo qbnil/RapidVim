@@ -2,14 +2,23 @@ return {
 	"neovim/nvim-lspconfig",
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
-		"hrsh7th/cmp-nvim-lsp",
-		"williamboman/mason.nvim",
-		"williamboman/mason-lspconfig.nvim",
+		{
+			"hrsh7th/cmp-nvim-lsp",
+			event = "VeryLazy",
+		},
+		{
+			"williamboman/mason.nvim",
+			event = "VeryLazy",
+		},
+		{
+			"williamboman/mason-lspconfig.nvim",
+			event = "VeryLazy",
+		},
 	},
 	config = function()
 		local lspconfig = require("lspconfig")
 		local cmp_lsp = require("cmp_nvim_lsp")
-        local lsp_info_ui = require('lspconfig.ui.windows')
+		local lsp_info_ui = require("lspconfig.ui.windows")
 		local capabilities = vim.tbl_deep_extend(
 			"force",
 			{},
@@ -33,8 +42,12 @@ return {
 						capabilities = capabilities,
 						settings = {
 							Lua = {
-								runtime = { version = "Lua 5.1" },
+								runtime = {
+									version = "LuaJIT",
+								},
+								completion = { enable = true, callSnippet = "Both" },
 								diagnostics = {
+									enable = true,
 									globals = { "vim", "it", "describe", "before_each", "after_each" },
 								},
 							},
@@ -71,6 +84,16 @@ return {
 						capabilities = capabilities,
 					})
 				end,
+				["bashls"] = function()
+					lspconfig.bashls.setup({
+						capabilities = capabilities,
+					})
+				end,
+				-- ["arduino_language_server"] = function()
+				-- 	lspconfig.arduino_language_server.setup({
+				-- 		capabilities = capabilities,
+				-- 	})
+				-- end,
 			},
 		})
 
@@ -91,7 +114,7 @@ return {
 			},
 		})
 
-        -- Borders for some floating windows
+		-- Borders for some floating windows
 		local _border = "single"
 		vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 			border = _border,
@@ -99,9 +122,9 @@ return {
 		vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
 			border = _border,
 		})
-        lsp_info_ui.default_options = {
-            border = _border,
-        }
+		lsp_info_ui.default_options = {
+			border = _border,
+		}
 
 		-- Mappings
 		local opts = { noremap = true, silent = true }

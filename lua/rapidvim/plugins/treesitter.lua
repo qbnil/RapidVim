@@ -12,6 +12,7 @@ return {
 			},
 			ensure_installed = {
 				"lua",
+                "bash"
 			},
 			indent = {
 				enable = true,
