@@ -37,7 +37,7 @@ vim.o.numberwidth = 2
 vim.o.ruler = false
 
 -- disable nvim intro
--- vim.opt.shortmess:append("sI")
+vim.opt.shortmess:append("sI")
 
 vim.o.signcolumn = "yes"
 vim.opt.scrolloff = 8
@@ -57,6 +57,11 @@ vim.opt.whichwrap:append("<>[]hl")
 vim.g.mapleader = " "
 vim.g.netrw_winsize = 15
 vim.opt.fixendofline = false
+
+-- Cmp
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
+vim.opt.shortmess:append("c")
+
 
 -- add binaries installed by mason.nvim to path
 local is_windows = vim.fn.has("win32") ~= 0

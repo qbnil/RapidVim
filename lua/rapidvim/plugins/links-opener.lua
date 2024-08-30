@@ -63,6 +63,6 @@ return {
 				-- so the url will be https://www.npmjs.com/package/[pattern_found]/issues
 			},
 		})
-		vim.keymap.set("n", "<A-w>", "<esc>:URLOpenUnderCursor<cr>")
+		vim.keymap.set("n", "<A-s>", "<esc>:URLOpenUnderCursor<cr>")
 	end,
 }

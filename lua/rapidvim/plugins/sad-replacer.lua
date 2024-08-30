@@ -1,5 +1,6 @@
 return {
     "ray-x/sad.nvim",
+    lazy = true,
     event = "VeryLazy",
     dependencies = { "ray-x/guihua.lua", run = "cd lua/fzy && make" },
     config = function()

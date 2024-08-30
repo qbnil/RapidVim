@@ -1,5 +1,6 @@
 return {
     'numToStr/Comment.nvim',
+    lazy = true,
     event = "VeryLazy",
     config = function()
         require('Comment').setup({
@@ -43,7 +44,6 @@ return {
             pre_hook = nil,
             ---Function to call after (un)comment
             post_hook = nil,
-
         })
     end
 }

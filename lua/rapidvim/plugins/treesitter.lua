@@ -1,7 +1,7 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
+    lazy = false,
 	build = ":TSUpdate",
-	event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		local treesitter = require("nvim-treesitter.configs")
 		treesitter.setup({
@@ -12,7 +12,9 @@ return {
 			},
 			ensure_installed = {
 				"lua",
-                "bash"
+                "bash",
+                "vim",
+                "vimdoc"
 			},
 			indent = {
 				enable = true,

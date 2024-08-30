@@ -236,5 +236,11 @@ return {
             "<cmd>lua require('fzf-lua').git_stash({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>",
             { silent = true }
         )
+        vim.keymap.set(
+            "n",
+            "<leader>fS",
+            "<cmd>lua require('fzf-lua').colorschemes({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>",
+            { silent = true }
+        )
     end,
 }
